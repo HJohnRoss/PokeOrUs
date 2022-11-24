@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/background.css">
+    <title>Register</title>
+</head>
+
+<body>
+    <nav class="container-fluid navbar navbar-expand-lg bg-dark navbar-dark position-fixed top-0 rounded">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Poké Or Us</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/connect">Poké Connect</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/black_market">Black Market</a>
+                    </li>
+                </ul>
+                {% if 'user_id' not in session %}
+                <div class="d-flex gap-3">
+                    <a href="/login" class="btn btn-outline-success">Login</a>
+                </div>
+                {% else %}
+                <a href="/logout" class="btn btn-outline-danger">Logout</a>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+    <div class="mb-2">a</div>
+    <div class="bg-dark container text-light mb-3 rounded">
+        <h1 class="text-center mt-5 mb-3 pt-3">Register</h1>
+        <div class="d-flex justify-content-evenly align-items-center">
+            <div class="d-flex flex-column text-center">
+                <form action="/user/create" method="post">
+                    {% for message in get_flashed_messages(category_filter=['reg']) %}
+                    <p class="text-danger text-center">{{ message }}</p>
+                    {% endfor %}
+                    <div class="d-flex align-items-center gap-3">
+                        <input class="mb-2" placeholder="first name" name="first_name" type="text">
+                        <input class="mb-2" placeholder="last name" name="last_name" type="text">
+                    </div>
+                    <div class="mb-3 d-flex flex-column">
+                        <input class="mb-2" placeholder="email" name="email" type="text">
+                        <input class="mb-2" placeholder="password" name="password" type="password">
+                        <input class="mb-2" placeholder="confirm password" name="confirm_pw" type="password">
+                    </div>
+                    <div class="text-center">
+                        <button class="btn btn-primary mb-3">create account</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <img class="img-fluid rounded mb-3" src="../static/img/register.jpg" alt="">
+    </div>
+    <p class="p-3 mt-3 text-center container bg-dark text-light rounded">
+        About Poké Or Us:<br>
+        created by: John Ross<br>
+        made for non commercial use<br>
+        made with python javascript html css<br>
+        using mySQL as database poke and Stripe API's<br>
+        images may be copyrighted
+    </p>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
