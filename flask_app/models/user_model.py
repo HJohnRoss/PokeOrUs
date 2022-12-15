@@ -26,6 +26,7 @@ class User:
         result = connectToMySQL(DATABASE).query_db(query, data)
         return result
 
+
     @classmethod
     def get_by_email(cls, data):
         query = """
