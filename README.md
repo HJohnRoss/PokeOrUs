@@ -1,5 +1,5 @@
 <div align="center">
-  <a href="https://github.com/S-Hightower/Flick-ITS">
+  <a href="https://github.com/HJohnRoss/PokeOrUs">
     <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" alt="Logo" width="400" height="400">
   </a>
 
